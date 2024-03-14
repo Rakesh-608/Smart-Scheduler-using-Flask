@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% block content %}
+<center>
+    <div class="overlay dark-overlay">
+    </div>
+
+    {% if login == True %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                <div class="banner-content content-padding" style="padding-bottom: 0px;padding-top: 100px;">
+                    <h1 class="text-black">Log In Success</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                <div class="banner-content content-padding" style="padding-bottom: 0px;padding-top: 100px;">
+                    <h1 class="text-black">Log In Now!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MAIN HEADER AREA END -->
+
+    <!--  Contact START  -->
+    <section class="section-padding">
+        <div class="container">
+            <center class="">
+
+                <form method="post" action="{{ url_for('studentlogin') }}">
+                    <div class="col-md-5 form-group">
+                        <input name="email" type="email" class="form-control" placeholder="Email"
+                            style="border: 1px solid black; height:40px" required>
+                    </div>
+                    <div class="col-md-5 form-group">
+                        <input name="password" type="password" class="form-control" placeholder="Password"
+                            style="border: 1px solid black; height:40px" required>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Log In">
+                    </div>
+                </form>
+                <a class="btn" href="{{ url_for('studentregister') }}">Click here to register as a new faulty!</a>
+            </center>
+        </div>
+    </section>
+    {% endif %}
+</center>
+<!--  CONTACT END  -->
+{% endblock %}

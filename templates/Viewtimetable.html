@@ -1,0 +1,83 @@
+{% extends "studenthome.html" %}
+{% block content %}
+
+
+<center>
+    <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</center>
+<!--MAIN BANNER AREA START -->
+<center>
+    <div class="banner-area">
+
+        <div class="overlay dark-overlay">
+        </div>
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+
+
+
+                            <table id='mytable' class="table table-sm table-borderless mb-0" style="margin-top:80px;">
+
+
+                                <thead class="thread-dark">
+                                    <tr>
+                                        <th style="color:black">
+                                            Day/Time
+                                        </th>
+                                        <td style="color:black">9:10 AM <br>to<br> 10:10 AM</td>
+
+                                        <td style="color:black">10:10 AM <br>to<br> 11:00 AM</td>
+                                        <td style="color:black">11:10 AM <br>to<br> 12:00 AM</td>
+                                        <td style="color:black">12:00 AM <br>to<br> 12:50 PM</td>
+                                        <td></td>
+                                        <td style="color:black">1:40 PM <br>to<br> 2:40 PM</td>
+                                        <td style="color:black">2:40 PM <br>to<br> 3:30 PM</td>
+                                        <td style="color:black">3:30 PM <br>to<br> 4:20 PM</td>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for row in rows %}
+                                    <tr>
+                                        <th scope="row" style="color:black">{{ row[0] }}</th>
+                                        {% for r in row[1:] %}
+                                        <td style="color:black">{{ r }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</center>
+
+
+
+
+
+
+
+
+
+{% endblock %}

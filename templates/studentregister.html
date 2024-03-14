@@ -1,0 +1,91 @@
+{% extends "index.html" %}
+{% block content %}
+<center>
+    <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+
+    <!--MAIN BANNER AREA START -->
+    <div class="page-banner-area page-contact" id="page-banner" style="padding-bottom: 0px;">
+        <div class="overlay dark-overlay" style="height: 100%">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                    <div class="banner-content content-padding" style="padding-bottom: 0px;padding-top: 80px;">
+                        <h1 class="text-black" style="color: rgb(9, 9, 9);">Student Registration</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container" align="center">
+            <center>
+                <form method="post" action="{{ url_for('studentregister') }}"  method="post" enctype="multipart/form-data">
+                    <div class="row" align="center" style="height: 250px; margin-left: 220px">
+                        <div class="column">
+                            <div class="col-md-6 form-group">
+                                <input name="name" type="text" class="form-control" placeholder="Name"
+                                    style="border: 2px solid black; height:40px" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="email" type="email" class="form-control"
+                                    style="border: 2px solid black; height:40px" placeholder="Email" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="password" type="password" class="form-control" placeholder="Password"
+                                    style="border: 2px solid black; height:40px" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="Con_Password" type="password" class="form-control"
+                                    placeholder="Confirm Password" style="border: 2px solid black; height:40px"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="col-md-6 form-group">
+                                <input name="year" type="text" class="form-control" placeholder="year"
+                                    style="border: 2px solid rgb(11, 11, 11); height:40px" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="sem" type="text" class="form-control" placeholder="Semister" 
+                                    style="border: 2px solid rgb(8, 8, 8); height:40px">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="mobile" type="text" class="form-control" placeholder="Contact"
+                                    style="border: 2px solid rgb(11, 11, 11); height:40px">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="address" type="text" class="form-control" placeholder="Address"
+                                     style="border: 2px solid rgb(2, 2, 7); height:40px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Register">
+                    </div>
+                </form>
+                <a class="btn" href="{{ url_for('studentlogin') }}">Already have an Account? Click here to log in!</a>
+            </center>
+        </div>
+        <br>
+        <br>
+    </section>
+
+
+</center>
+
+
+{% endblock %}

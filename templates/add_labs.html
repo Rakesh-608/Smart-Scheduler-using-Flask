@@ -1,0 +1,90 @@
+{% extends "index.html" %}
+{% block content %}
+<center>
+    <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+
+    <!--MAIN BANNER AREA START -->
+    <div class="page-banner-area page-contact" id="page-banner">
+        <div class="overlay dark-overlay" style="height: 100%">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                    <div class="banner-content content-padding" style="padding-top: 80px;padding-bottom: 0px;">
+                        <h1 class="text-black">Add Labs!</h1>
+                        <p class="text-black" style="color:black">Select 2 lab sessions for every semester of every
+                            year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--MAIN HEADER AREA END -->
+    <!--  Contact START  -->
+    <section class="section-padding" style="padding-bottom: 0px;">
+        <div class="container" align="center">
+            <center>
+                <form method="post" action="{{ url_for('add_labs') }}">
+                    <div class="row" align="center" style="height: 40px; margin-left: 220px">
+                        <div class="column" style="height: 40px">
+                            <div class="col-md-6 form-group">
+                                <select name="year" class="form-control"
+                                    style="border: 1px solid black; height:40px; width:230px" required>
+                                    <option value="-1">Select Year</option>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Final Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="column" style="height:40px">
+                            <div class="col-md-6 form-group">
+                                <select name="semester" class="form-control"
+                                    style="border: 1px solid black; height:40px; width:230px" required>
+                                    <option value="-1">Select Semester</option>
+                                    <option value="1">First Semester</option>
+                                    <option value="2">Second Semester</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-6 form-group">
+                        <select name="lab" class="form-control"
+                            style="border: 1px solid black; height:40px; width:230px" required>
+                            <option value="-1">Select Lab</option>
+                            {% for sub in subz %}
+                            {% if sub=='' %}
+                            {% elif sub=='pending' %}
+                            {% else %}
+                            <option value="{{sub}}">{{sub}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <br>
+                    <div class="col-md-6 form-group">
+                        <input name="submit" type="submit" class="btn btn-hero btn-circled" value="Add Labs">
+                    </div>
+                </form>
+            </center>
+        </div>
+        <br>
+        <br>
+    </section>
+</center>
+{% endblock %}
+<!--  CONTACT END  -->

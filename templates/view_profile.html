@@ -1,0 +1,86 @@
+{% extends "index.html" %}
+{% block content %}
+<center>
+    <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <!--MAIN BANNER AREA START -->
+    <div class="page-banner-area page-contact" id="page-banner">
+        <div class="overlay dark-overlay" style="height: 100%">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                    <div class="banner-content content-padding" style="padding-top: 80px;padding-bottom: 0px;">
+                        <h3 class="text-white">View Profile!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--MAIN HEADER AREA END -->
+    <!--  Contact START  -->
+    <section class="section-padding" style="padding-bottom: 0px;padding-top: 0px;height: 260px;">
+        <div class="container" align="center">
+            <center>
+                <div>
+                    <!--                    <div class="row" align="center" style="height: 250px; margin-left: 220px">-->
+                    <!--                        <div class="column">-->
+                    <div class="row" style="width:550px">
+                        <div class="column col-md-6 form-group">
+                            <label style="color:black;">Name</label>
+                            <input name="name" type="text" class="form-control" placeholder="Name" readonly
+                                value="{{ data[0] }}" style="border: 1px solid black; height:40px" required>
+                        </div>
+                        <div class="column col-md-6 form-group">
+                            <label style="color:black;">Email</label>
+                            <input name="email" type="email" class="form-control" readonly value="{{ data[1] }}"
+                                style="border: 2px solid black; height:40px" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="row" style="width:550px">
+                            <div class="column col-md-6 form-group">
+                                <label style="color:black;">Subject 1</label>
+                                <input name="sub1" type="text" class="form-control" readonly value="{{ data[3] }}"
+                                    placeholder="Subject 1" style="border: 2px solid rgb(7, 7, 7); height:40px" required>
+                            </div>
+                            <div class="column col-md-6 form-group">
+                                <label style="color:black;">Experience 1</label>
+                                <input name="exp1" type="number" class="form-control" readonly value="{{ data[4] }}"
+                                    placeholder="Experience (in years)" min="0"
+                                    style="border: 2px solid rgb(14, 14, 14); height:40px" required>
+                            </div>
+                        </div>
+                        <div class="row" style="width:550px">
+                            <div class="column col-md-6 form-group">
+                                <label style="color:black;">Subject 2</label>
+                                <input name="sub2" type="text" class="form-control" readonly value="{{ data[5] }}"
+                                    placeholder="Subject 2" style="border: 2px solid rgb(5, 5, 8); height:40px" required>
+                            </div>
+                            <div class="column col-md-6 form-group">
+                                <label style="color:black;">Experience 2</label>
+                                <input name="exp2" type="number" class="form-control" readonly value="{{ data[6] }}"
+                                    placeholder="Experience (in years)" min="0"
+                                    style="border: 2px solid rgb(5, 5, 7); height:40px" required>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                </div>
+            </center>
+        </div>
+        <br>
+        <br>
+    </section>
+</center>
+{% endblock %}

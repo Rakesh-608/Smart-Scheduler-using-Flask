@@ -1,0 +1,91 @@
+{% extends "index.html" %}
+{% block content %}
+<!--MAIN HEADER AREA END -->
+<center>
+    <div class="col-md-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </div>
+
+
+    <!--MAIN BANNER AREA START -->
+    <div class="page-banner-area page-contact" id="page-banner" style="padding-bottom: 0px;">
+        <div class="overlay dark-overlay" style="height: 100%">
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                    <div class="banner-content content-padding" style="padding-bottom: 0px;padding-top: 80px;">
+                        <h1 class="text-black">Register Now!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--MAIN HEADER AREA END -->
+    <!--  Contact START  -->
+    <section class="section-padding">
+        <div class="container" align="center">
+            <center>
+                <form method="post" action="{{ url_for('register') }}">
+                    <div class="row" align="center" style="height: 250px; margin-left: 220px">
+                        <div class="column">
+                            <div class="col-md-6 form-group">
+                                <input name="name" type="text" class="form-control" placeholder="Name"
+                                    style="border: 2px solid black; height:40px" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="email" type="email" class="form-control"
+                                    style="border: 2px solid black; height:40px" placeholder="Email" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="password" type="password" class="form-control" placeholder="Password"
+                                    style="border: 2px solid black; height:40px" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="conf_password" type="password" class="form-control"
+                                    placeholder="Confirm Password" style="border: 2px solid black; height:40px"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="col-md-6 form-group">
+                                <input name="sub1" type="text" class="form-control" placeholder="Subject 1"
+                                    style="border: 2px solid rgb(5, 5, 5); height:40px" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="sub2" type="text" class="form-control"
+                                    placeholder="Subject 2" min="0"
+                                    style="border: 2px solid rgb(16, 16, 16); height:40px">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="sub3" type="text" class="form-control" placeholder="Subject 3"
+                                    style="border: 2px solid rgb(13, 13, 13); height:40px">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <input name="exp" type="number" class="form-control"
+                                    placeholder="Experience (in years)" min="0"
+                                    style="border: 2px solid rgb(8, 8, 8); height:40px" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Register">
+                    </div>
+                </form>
+                <a class="btn" href="{{ url_for('login') }}">Click here to log in!</a>
+            </center>
+        </div>
+        <br>
+        <br>
+    </section>
+</center>
+{% endblock %}
